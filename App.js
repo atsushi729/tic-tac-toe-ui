@@ -3,14 +3,15 @@ import {
   StyleSheet,
   Text,
   View,
-  SafeAreaView,
   StatusBar,
   Platform,
 } from "react-native";
+import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
       {/* Ensure the status bar stays readable */}
       <StatusBar barStyle="light-content" backgroundColor="#2c3e50" />
 
@@ -88,7 +89,8 @@ export default function App() {
           </View>
         </View>
       </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
